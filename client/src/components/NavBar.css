@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav_bar {
+    text-align: center;
+    background-color: aliceblue;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto; /* Добавляем горизонтальную прокрутку если не помещается */
+    -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
+}
+
+.nav_ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 15px;
+    padding: 0 60px; /* Учитываем место для логотипов */
+    margin: 0 auto;
+    max-width: 1200px;
+    min-width: min-content; /* Важно для корректного отображения при переполнении */
+    white-space: nowrap; /* Запрещаем перенос текста */
+}
+
+.links_nav {
+    text-decoration: none;
+    color: inherit;
+    display: inline-flex; /* Важно для nowrap */
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.links_nav:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.mkit_logo, .profile_image {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    cursor: pointer;
+    flex-shrink: 0; /* Запрещаем уменьшение размеров */
+}
+
+.mkit_logo {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.profile_image {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Адаптация для маленьких экранов */
+@media screen and (max-width: 768px) {
+    .nav_ul {
+        gap: 10px;
+        padding: 0 50px;
+        justify-content: center; /* Изменяем выравнивание */
+        font-size: 25px;
+    }
+    
+    .links_nav {
+        padding: 5px 8px;
+        font-size: 14px;
+    }
+    
+    .mkit_logo, .profile_image {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav_bar {
+        padding: 8px 0;
+    }
+    
+    .nav_ul {
+        gap: 8px;
+        padding: 0 45px; /* Уменьшаем отступы для логотипов */
+    }
+    
+    .links_nav {
+        font-size: 9px;
+        padding: 5px;
+    }
+    
+    .mkit_logo, .profile_image {
+        width: 25px;
+        height: 25px;
+    }
+    
+    /* Гарантируем что элементы не будут переноситься */
+    .nav_ul {
+        flex-wrap: nowrap;
+    }
+}
