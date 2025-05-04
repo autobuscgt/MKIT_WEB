@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const base_URL = 'http://localhost:7000/'
+const base_URL = 'http://192.168.1.65:7000/'
 
  const $authHost = await axios.create({
     baseURL:base_URL

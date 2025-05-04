@@ -9,10 +9,9 @@ const errorHandler = require('./middlewares/ErrorHanlingMiddleware')
 const router = require('./routes/index')
 
 app.use(express.json())
-app.use(cors({origin: 'http://localhost:3000'}))
+app.use(cors({origin: 'http://192.168.1.65:3001'}))
 app.use('/api',router)
 
-//Обработка ошибок
 app.use(errorHandler)
 
 async function start() {

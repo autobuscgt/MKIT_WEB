@@ -20,7 +20,8 @@ const Events = observer(() => {
   const isAdmin = user.user?.role === 'Admin';
 
     useEffect(() => {
-      fetchEvents(event.pages,8).then(data => {
+      const page = event.pages
+      fetchEvents(page,8).then(data => {
         if (data && Array.isArray(data.events)) {
           event.setEvents(data.events);
 
@@ -30,13 +31,11 @@ const Events = observer(() => {
           console.error('Unexpected data format:', data);
           event.setEvents([]);
         }
-        event.setPage(data.pages)
-        event.setTotalCount(data.total)
-
       });
     }, [event]);
     useEffect(()=>{
-      fetchEvents(event.pages, 8).then(data =>{
+      const page = event.pages
+      fetchEvents(page, 8).then(data =>{
         event.setEvents(data.events)
         event.setTotalCount(data.total)
       })

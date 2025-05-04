@@ -16,7 +16,7 @@ const Pages = observer(()=> {
     return (
         <Pagination className='pagination_menu'>
             {pages_.map(page => (
-                <Pagination.Item className='pagination_menu'
+                <Pagination.Item className='pagination_menu'  key={page}
                 active={event.pages === page}
                 onClick={()=> event.setPage(page)}>
                 {page}</Pagination.Item>

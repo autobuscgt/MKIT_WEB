@@ -474,6 +474,15 @@ table td tr tbody{
   #img4{
     box-shadow: 5px 5px 0px 0px #C87700;
   }
+  .error-message {
+    color: #008cff;
+    font-size: 12px;
+    margin-top: 4px;
+    text-align: left;
+    width: 100%;
+    padding-left: 5px;
+  }
+  
 
 @media screen and (max-width: 600px) {
     .centered {
@@ -502,8 +511,9 @@ table td tr tbody{
     .mobile-row {
       display: none;
     }
+
   }
-  
+
   @media (max-width: 767px) {
     .desktop-row {
       display: none;
@@ -516,7 +526,5 @@ table td tr tbody{
       display: flex;
       flex-direction: row;
     }
-    .main_container{
 
-    }
   }

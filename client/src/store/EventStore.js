@@ -11,8 +11,6 @@ export default class EventStore{
     setEvents(events) {
       this._events = events
     }
-    
-    
       async deleteEvent(id) {
         try {
           const currentEvents = Array.isArray(this._events) ? this._events : []
@@ -44,6 +42,7 @@ export default class EventStore{
     setLimit(limit){
       this._limit = limit
     }
+    
     get pages(){
       return this._pages
     }
