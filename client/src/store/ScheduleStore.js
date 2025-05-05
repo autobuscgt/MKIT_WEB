@@ -22,4 +22,7 @@ export default class ScheduleStore {
     get selectedGroupId() { 
         return this._selectedGroupId
     }
+    removeDay(day) {
+        this._schedules = this._schedules.filter(item => item.day !== day)
+    }
 }

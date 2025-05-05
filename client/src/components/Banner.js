@@ -8,7 +8,7 @@ function Banner() {
             <div className='banner'>
                 
                 <ul className='banner_list'> 
-                    <li className='banner_list'>            
+                    <li className='banner_list' style={{textAlign:'center'}}>            
                 <span>
                  {`..{ МКИТ_WEB }..`}
                 </span>

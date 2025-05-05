@@ -8,5 +8,9 @@ router.get('/',authMiddleWare,scheduleController.getAll)
 router.get('/:id',authMiddleWare,scheduleController.getOne)
 router.delete('/:id' ,checkRoleMiddleware('Admin'),scheduleController.deleteSchedule)
 router.put('/:id' ,checkRoleMiddleware('Admin'),scheduleController.updateSchedule)
+router.delete('/',checkRoleMiddleware('Admin'),scheduleController.deleteAllSchedule)
+
+router.delete('/day', checkRoleMiddleware('Admin'), scheduleController.deleteDaySchedule)
+router.put('/day', checkRoleMiddleware('Admin'), scheduleController.updateDaySchedule)
 
 module.exports = router

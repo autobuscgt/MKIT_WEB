@@ -1,14 +1,17 @@
 import Modal from 'react-bootstrap/Modal'
 import {Button} from 'react-bootstrap'
-import {Form} from 'react-bootstrap'
+import {Form,Dropdown} from 'react-bootstrap'
 import { useState } from 'react'
 import { createHomework } from '../../http/homeworkAPI'
+import { useContext } from 'react'
+import { Context } from '../..'
 function CreateHM({show,onHide}) {
 
   const [lesson,setLesson] = useState('')
   const [description,setDescription] = useState('')
   const [groupId,setGroupId] = useState('')
-
+  const {groups} = useContext(Context)
+  const selectedGroup = groups.groups?.find(g => g.id === Number(groupId))
   const handleSubmit = async()=>{
     try {
       await createHomework(
@@ -51,6 +54,21 @@ function CreateHM({show,onHide}) {
                 value={groupId}
                 onChange={(e)=>setGroupId(e.target.value)}>
                 </Form.Control>
+                <Dropdown className='dropdown mb-3'>
+            <Dropdown.Toggle variant="secondary">
+              {selectedGroup?.name || 'Выберите группу'}
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              {groups.groups?.map((group) => (
+                <Dropdown.Item 
+                  key={group.id}
+                  onClick={() => setGroupId(group.id.toString())}
+                >
+                  {group.group_code} {group.speciality} (ID: {group.id})
+                </Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
             </Form>
         </Modal.Body>
         <Modal.Footer>

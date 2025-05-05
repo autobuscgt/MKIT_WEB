@@ -9,7 +9,7 @@ const errorHandler = require('./middlewares/ErrorHanlingMiddleware')
 const router = require('./routes/index')
 
 app.use(express.json())
-app.use(cors({origin: 'http://192.168.1.65:3001'}))
+app.use(cors({origin: 'http://192.168.1.65:3000'}))
 app.use('/api',router)
 
 app.use(errorHandler)
